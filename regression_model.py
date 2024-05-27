@@ -27,18 +27,16 @@ def get_data():
 #Loading Data
 (X_train, y_train), (X_test, y_test) = get_data()
 
+def polynomial_features(X_train, X_test, degree):
+    poly = PolynomialFeatures(degree)
+    X_train_poly = poly.fit_transform(X_train)
+    X_test_poly = poly.transform(X_test)
+    return X_train_poly, X_test_poly
 
 
-# Polynomial degree
-degree = 3
+degree = 2
+X_train_poly, X_test_poly = polynomial_features(X_train, X_test, degree=degree)
 
-# Generate polynomial features
-poly = PolynomialFeatures(degree)
-X_train_poly = poly.fit_transform(X_train)
-X_test_poly = poly.transform(X_test)
-
-print(f'X_train_poly shape : {X_train_poly.shape}')
-print(f'X_test_poly shape : {X_test_poly.shape}')
 
 
 # Initialize parameters
