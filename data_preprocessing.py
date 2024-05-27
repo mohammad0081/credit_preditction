@@ -1,29 +1,34 @@
 import pandas as pd
 from sklearn.utils import shuffle
-df = pd.read_csv('CreditPrediction.csv')
+
+df = pd.read_csv('Data/CreditPrediction.csv')
 
 df = df.drop(['Unnamed: 19'], axis=1)
 df = df.drop(['CLIENTNUM'], axis=1)
 
+# Adding the target col as the last col of data frame
 credit = df.pop('Credit_Limit')
 df['Credit_Limit'] = credit
 
 
 df['Gender'].replace(['M', 'F'], [0, 1], inplace=True)
+# Value 0 : Male
 df['Gender'].fillna(value=0, inplace=True)
 
 df['Education_Level'].replace(['Uneducated', 'High School', 'College','Graduate', 'Post-Graduate', 'Doctorate', 'Unknown'],
                               [0, 1, 2, 3, 4, 5, 3], inplace=True)
 
 df['Marital_Status'].replace(['Single', 'Married', 'Divorced', 'Unknown'], [0, 1, 2, 1], inplace=True)
-df['Marital_Status'].fillna(value=0, inplace=True)
+# value 1 : Married
+df['Marital_Status'].fillna(value=1, inplace=True)
 
 df['Income_Category'].replace(['Less than $40K', '$40K - $60K', '$60K - $80K', '$80K - $120K', '$120K +', 'Unknown'],
-                              [0, 1, 2, 3, 4, 5], inplace=True)
+                              [0, 1, 2, 3, 4, 2], inplace=True)
 
 df['Card_Category'].replace(['Blue', 'Silver', 'Gold', 'Platinum'],
                             [0, 1, 2, 3], inplace=True)
 
+# Value 0 : Blue
 df['Card_Category'].fillna(value=0, inplace=True)
 
 
@@ -35,6 +40,7 @@ for column in df.columns:
     df[column].fillna(mean_value, inplace=True)
 
 df = df[df['Customer_Age'] <= 75]
+
 df = shuffle(df)
 train_df = df.iloc[:9000, :]
 test_df = df.iloc[9000:, :]
@@ -55,6 +61,6 @@ for column in train_df.columns[11:-1]:
     test_df[column] = test_df[column] / max_value
 
 
-train_df.to_csv('train.csv', index=False)
-test_df.to_csv('test.csv', index=False)
+train_df.to_csv('Data/train.csv', index=False)
+test_df.to_csv('Data/test.csv', index=False)
 

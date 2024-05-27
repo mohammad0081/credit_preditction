@@ -7,14 +7,14 @@ import pandas as pd
 def get_data():
 
 
-    dataset_train = pd.read_csv('train.csv')
+    dataset_train = pd.read_csv('Data/train.csv')
     dataset_train = dataset_train.to_numpy()
 
     y_train = dataset_train[:, -1] # Last column is target column
     X_train = dataset_train[:, :-1] # other columns are feature
 
 
-    dataset_test = pd.read_csv('test.csv')
+    dataset_test = pd.read_csv('Data/test.csv')
     dataset_test = dataset_test.to_numpy()
 
     y_test = dataset_test[:, -1] # Last column is target column

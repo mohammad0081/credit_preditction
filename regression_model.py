@@ -9,7 +9,6 @@ import numpy as np
 import time
 
 def get_data():
-
     dataset_train = pd.read_csv('Data/train.csv')
     dataset_train = dataset_train.to_numpy()
     y_train = dataset_train[:, -1]
@@ -23,7 +22,6 @@ def get_data():
 
     return (X_train, y_train), (X_test, y_test)
 
-
 def polynomial_features(X_train, X_test, degree):
     poly = PolynomialFeatures(degree)
     X_train_poly = poly.fit_transform(X_train)
@@ -34,7 +32,7 @@ def polynomial_features(X_train, X_test, degree):
 #Loading Data
 (X_train, y_train), (X_test, y_test) = get_data()
 
-degree = 2
+degree = 3
 X_train_poly, X_test_poly = polynomial_features(X_train, X_test, degree=degree)
 
 
@@ -66,7 +64,7 @@ def update(params, velocity, X, y, lr=0.01, momentum=0.9):
 
 
 # Training loop
-def train(params, velocity, X_train, y_train, X_test, y_test, epochs=100, lr=0.01, momentum=0.9):
+def train(params, velocity, X_train, y_train, X_test, y_test, epochs=1000, lr=0.01, momentum=0.9):
 
     training_times = []
     start_epoch = time.time()
@@ -81,6 +79,7 @@ def train(params, velocity, X_train, y_train, X_test, y_test, epochs=100, lr=0.0
             test_loss = mse_loss(params, X_test, y_test)
             print(f'Epoch {epoch} | {str(epoch_time)[:5]} | Train Loss: {train_loss} | Test Loss: {test_loss}')
             start_epoch = time.time()
+
     return params, training_times
 
 
