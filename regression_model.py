@@ -24,15 +24,15 @@ def get_data():
     return (X_train, y_train), (X_test, y_test)
 
 
-#Loading Data
-(X_train, y_train), (X_test, y_test) = get_data()
-
 def polynomial_features(X_train, X_test, degree):
     poly = PolynomialFeatures(degree)
     X_train_poly = poly.fit_transform(X_train)
     X_test_poly = poly.transform(X_test)
     return X_train_poly, X_test_poly
 
+
+#Loading Data
+(X_train, y_train), (X_test, y_test) = get_data()
 
 degree = 2
 X_train_poly, X_test_poly = polynomial_features(X_train, X_test, degree=degree)
