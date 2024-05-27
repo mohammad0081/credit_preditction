@@ -10,13 +10,13 @@ import time
 
 def get_data():
 
-    dataset_train = pd.read_csv('train.csv')
+    dataset_train = pd.read_csv('Data/train.csv')
     dataset_train = dataset_train.to_numpy()
     y_train = dataset_train[:, -1]
     X_train = dataset_train[:, :-1]
 
 
-    dataset_test = pd.read_csv('test.csv')
+    dataset_test = pd.read_csv('Data/test.csv')
     dataset_test = dataset_test.to_numpy()
     y_test = dataset_test[:, -1]
     X_test = dataset_test[:, :-1]
@@ -27,8 +27,6 @@ def get_data():
 #Loading Data
 (X_train, y_train), (X_test, y_test) = get_data()
 
-print(f'X_train shape : {X_train.shape}')
-print(f'X_test shape : {X_test.shape}')
 
 
 # Polynomial degree
