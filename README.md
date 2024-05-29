@@ -1,8 +1,6 @@
 # Credit Prediction
 ## Credit Limitation Prediction using Polynomial Regression and Random Forest Regressor
 
-# Credit Limit Prediction Project
-
 ## Introduction
 In the dynamic domain of financial technology, the precision in predicting credit limits is pivotal for tailoring banking services to individual needs. Our project, 'Credit Limit Prediction,' leverages machine learning to forecast credit limits with unprecedented accuracy. We've prepared a comprehensive dataset of user features, preprocessed to build a model that truly reflects financial behaviors.
 
