@@ -21,28 +21,23 @@ Our project's methodology is built on advanced machine learning techniques and c
 1. **Polynomial Regression Implementation**:
    - Utilized the JAX framework for JIT compilation to efficiently train on a GPU.
    - Transformed the dataset into polynomial features using Scikit-Learn.
-
-*  Functional Programming:
    - Adopted functional programming paradigms to manage complexity and enhance maintainability.
-
-*  Performance Comparison:
    - Training JAX polynomial regression model both on CPU and GPU , to compare the results of training on different hardwares
-
-*  Stochastic Gradient Descent with Momentum:
    - Employed Stochastic Gradient Descent with momentum for better optimization and faster convergence. We also compared using different momentum values on the final results
-
-*  Model Evaluation:
    - We compare the differnet results in using random forest and polynomial regression for multivariable regression , as well as comparing the result of using different polynomial degree for dataset on the final results
 
 2. **Random Forest Model**:
    - Applied the polynomial feature dataset to the Random Forest model, conducted exclusively on a CPU due to scikit-learn's limitations.
-
-*  Hyperparameter Tuning:
    - We set different values for hyperparameters to check their effect on final results 
 
 
 The dataset consistency across both models ensured a fair comparison, with 9,000 training examples and 1,160 test examples, each with 17 features. The application of polynomial features expanded the feature space, enriching the dataset for our predictive models. The Random Forest model outperformed Polynomial Regression, indicating its superior ability to detect complex patterns in the dataset.
 
-## Conclusion
-The comparative results demonstrate the Random Forest model's efficacy in capturing complex patterns better than Polynomial Regression, making it a robust tool for credit limit prediction in the financial sector.
+
+## Scripts 
+Our implementation includes three main files :
+
+- **data_preprocessing.py** : Includes the loading data file and preprocessing it to create a simple clean dataset for feeding the models . consist of categorizing some of the features and filling NaN values
+- **regression_model.py** : Includes the scripts of implementation of polynomial regression with JAX
+- **random_forest_model.py** : Includes the scripts of implementation of random forest regression with SciKit-Learn
 
